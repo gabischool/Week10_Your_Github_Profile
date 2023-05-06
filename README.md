@@ -23,7 +23,7 @@
 ### Task 2a: MVP
 
 - [ ]  Use Github's open API `https://api.github.com/users/<your-github-username>` to render your profile data. Use the same endpoint and add `/followers` or `/following` at the end to render either your followers or your following. 
-- [ ] Make sure your application looks like the [preview image](https://github.com/gabischool/Week10_Your_Github_Profile/githubcard.png)
+- [ ] Make sure your application looks like the [preview image](https://github.com/gabischool/Week10_Your_Github_Profile/blob/main/githubcard.png)
 - [ ] Follow all the instructions carefully.
 
 
