@@ -1,9 +1,12 @@
 // You don't need to change anything in this file.
 // Uma baahnid inaa meeshaan wax ka badasho.
 
+import { logDOM } from '@testing-library/react';
 import React from 'react'
 
 function FollowingCard(props) {
+
+  console.log(props);
 
     const {user} = props;
 
