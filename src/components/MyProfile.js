@@ -55,8 +55,8 @@ function MyProfile(props) {
     {/** Use Routes and Route to show "FollowingList" and "FollowersList" components and send them their props, Make sure they both have correct path */}
     {/** Adigoo isticmaalaayo Routes iyo Route, tus "FollowingList" iyo "FollowersList", una dir props-ka ay u baahanyihiin. Hubi in "FollowersList" ay Path="/" leedahay, "FollowingList"-na ay Path="/following" leedahay */}
     <Routes>
-      {/* <Route path="/following" element={<FollowingList following={following}/>}></Route> */}
-      {/* <Route path="/" element={<FollowersList followers={followers}/>}></Route> */}
+      <Route path="/following" element={<FollowingList following={following}/>}/>
+      <Route path="/" element={<FollowersList followers={followers}/>}/>
     </Routes>
     </div>
   </div>
