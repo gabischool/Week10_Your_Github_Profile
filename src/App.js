@@ -1,7 +1,7 @@
 
 // Import the "useState" and "useEffect" hooks from React
 // Soo jiido "useState" iyo "useEffect"
-import React, { useState, useEffect } from "react";
+import React, { useState , useEffect } from "react";
 
 // Import the "MyProfile" component
 // Soo jiido "MyProfile" component-ka
@@ -17,9 +17,9 @@ function App() {
 
   // Create 3 states, "profile", "followers", and "following"
   // Samee 3 state, "profile", "followers", iyo "following"
-  const [profile, setProfile] = useState({});
-  const [followers, setFollowers] = useState({});
-  const [following, setFollowing] = useState({});
+  const [profile, setProfile] = useState([]);
+  const [followers, setFollowers] = useState([]);
+  const [following, setFollowing] = useState([]);
 
 
   // API For Profile = https://api.github.com/users/<your-github-username>
@@ -36,15 +36,17 @@ function App() {
      })
      .catch((err) => {
        console.log(err);
-     });
+     })
+
     axios.get('https://api.github.com/users/yaasiinaxmed/followers')
-     .then(res => {
+     .then((res) => {
       // console.log(res);
       setFollowers(res.data)
      })
      .catch((err) => {
       console.log(err);
-     });
+     })
+
      axios.get('https://api.github.com/users/yaasiinaxmed/following')
       .then((response) => {
         // console.log(response.data);
@@ -52,7 +54,7 @@ function App() {
       })
       .catch(error => {
         console.log(error);
-      });
+      })
   }, [])
     
   return (

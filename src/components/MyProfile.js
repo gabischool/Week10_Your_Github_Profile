@@ -5,7 +5,7 @@ import React from 'react';
 
 // Import "FollowingList" and "FollowersList" components
 // Soo jiido "FollowingList" iyo "FollowersList" components-ka
-// import FollowersList from './followers/FollowersList';
+import FollowersList from './followers/FollowersList';
 import FollowingList from './following/FollowingList';
 
 // Import "Route", "Routes", "Link", and "useLocation" from react-router-dom
@@ -56,7 +56,7 @@ function MyProfile(props) {
     {/** Adigoo isticmaalaayo Routes iyo Route, tus "FollowingList" iyo "FollowersList", una dir props-ka ay u baahanyihiin. Hubi in "FollowersList" ay Path="/" leedahay, "FollowingList"-na ay Path="/following" leedahay */}
     <Routes>
       <Route path="/following" element={<FollowingList following={following}/>}/>
-      {/* <Route path="/" element={<FollowersList followers={followers}/>}/> */}
+      <Route path="/" element={<FollowersList followers={followers}/>}/>
     </Routes>
     </div>
   </div>
