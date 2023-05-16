@@ -48,9 +48,9 @@ function App() {
      })
 
     axios.get('https://api.github.com/users/Ali-Key/following')
-      .then((response) => {
+      .then((res) => {
         // console.log(response.data);
-        setFollowing(response.data)
+        setFollowing(res.data)
       })
       .catch(error => {
         console.log(error);
