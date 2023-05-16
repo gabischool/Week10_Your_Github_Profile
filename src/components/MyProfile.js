@@ -38,6 +38,10 @@ function MyProfile(props) {
     <p className="text-sm text-stone-500">
      {profile.bio}
     </p>
+    <h4 className="text-md font-medium leading-3">Website</h4>
+    <a href={profile.blog} className="text-sm text-blue-600">
+     {profile.blog}
+    </a>
 
     <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
         <ul className="flex flex-wrap -mb-px">

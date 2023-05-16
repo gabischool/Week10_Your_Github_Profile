@@ -59,7 +59,7 @@ function App() {
     
   return (
     <div className="bg-white md:mx-auto rounded shadow-xl w-full md:w-1/2 overflow-hidden">
-      <div className="h-[140px] bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+      <div className="h-[140px] bg-gradient-to-r from-cyan-500 to-blue-700"></div>
       {/* Show "MyProfile" component here and give it 3 props, "profile", "followers", and "following" */}
       {/* Halkaan soo gali "MyProfile", 3 props-na sii, "profile", "followers", iyo "following" */}
       <MyProfile profile={profile} followers={followers} following={following}/>
