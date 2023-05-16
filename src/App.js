@@ -20,6 +20,7 @@ function App() {
   const [profile, setProfile] = useState([]);
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
+  const [repositories , setRepositories] = useState([]);
 
 
   // API For Profile = https://api.github.com/users/<your-github-username>
@@ -47,7 +48,7 @@ function App() {
       console.log(err);
      })
 
-     axios.get('https://api.github.com/users/yaasiinaxmed/following')
+    axios.get('https://api.github.com/users/yaasiinaxmed/following')
       .then((response) => {
         // console.log(response.data);
         setFollowing(response.data)
@@ -55,6 +56,16 @@ function App() {
       .catch(error => {
         console.log(error);
       })
+
+    axios.get('https://api.github.com/users/yaasiinaxmed/repos')
+      .then((response) => {
+        // console.log(response);
+        setRepositories(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    
   }, [])
     
   return (
@@ -62,7 +73,7 @@ function App() {
       <div className="h-[140px] bg-gradient-to-r from-cyan-500 to-blue-700"></div>
       {/* Show "MyProfile" component here and give it 3 props, "profile", "followers", and "following" */}
       {/* Halkaan soo gali "MyProfile", 3 props-na sii, "profile", "followers", iyo "following" */}
-      <MyProfile profile={profile} followers={followers} following={following}/>
+      <MyProfile profile={profile} followers={followers} following={following} repositories={repositories}/>
     </div>
   );
 }
