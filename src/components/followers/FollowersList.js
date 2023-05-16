@@ -1,8 +1,8 @@
 // You don't need to change anything in this file.
 // Uma baahnid inaa meeshaan wax ka badasho.
 
-import React from 'react'
-import FollowersCard from './FollowersCard'
+import React from 'react';
+import FollowersCard from './FollowersCard';
 function FollowersList(props) {
 
     const {followers} = props;
