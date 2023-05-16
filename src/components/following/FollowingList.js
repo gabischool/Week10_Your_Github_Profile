@@ -6,6 +6,7 @@ import FollowingCard from './FollowingCard'
 function FollowingList(props) {
 
     const {following} = props;
+    console.log("alikey",following)
 
   return (
     <div>
