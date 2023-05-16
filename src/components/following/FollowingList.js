@@ -9,9 +9,9 @@ function FollowingList(props) {
 
   return (
     <div>
-        {following.map((user) => 
+        {following.map((user) => (
             <FollowingCard key={user.id} user={user} />
-        )}
+        ))}
     </div>
   )
 }
