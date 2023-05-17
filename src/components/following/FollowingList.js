@@ -4,6 +4,7 @@
 import React from 'react'
 import FollowingCard from './FollowingCard'
 function FollowingList(props) {
+  
 
     const {following} = props;
 

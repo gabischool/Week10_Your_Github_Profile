@@ -6,6 +6,7 @@ import React from 'react'
 function FollowersCard(props) {
 
     const {user} = props;
+    console.log(user,"followers ")
 
   return (
     <div className="flex items-center gap-3 px-2 py-3 bg-white rounded border w-full ">
@@ -18,6 +19,7 @@ function FollowersCard(props) {
       <div className="leading-3">
         <p className=" text-sm font-bold text-slate-700">{user.login}</p>
         <span className="text-xs text-slate-600">@{user.login}</span>
+        <h3>there is no any folowers </h3>
       </div>
     </div>
   )
