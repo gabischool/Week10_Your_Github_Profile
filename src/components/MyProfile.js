@@ -5,6 +5,7 @@ import React from 'react';
 
 // Import "FollowingList" and "FollowersList" components
 // Soo jiido "FollowingList" iyo "FollowersList" components-ka
+
 import FollowersList from './followers/FollowersList';
 import FollowingList from './following/FollowingList';
 
@@ -16,6 +17,7 @@ function MyProfile(props) {
 
   // Destructure the props you passed from App.js
   // Kala bixi props-kii lagaaga soo diray App.js
+
   const { profile, followers, following } = props
 
   const location = useLocation();

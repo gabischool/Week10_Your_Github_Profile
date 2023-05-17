@@ -17,6 +17,7 @@ function App() {
 
   // Create 3 states, "profile", "followers", and "following"
   // Samee 3 state, "profile", "followers", iyo "following"
+
   const [profile, setProfile] = useState([]);
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
@@ -28,6 +29,7 @@ function App() {
 
   // Use axios to fetch data from the API using the useEffect hook
   // Halkaan isticmaal axios adigoo kasoo jiidanaayo waxaa u baahantahay API, useEffect hook-na isticmaal
+
   useEffect(() => {
     axios.get('https://api.github.com/users/Ali-Key')
      .then((res) => {
@@ -49,7 +51,8 @@ function App() {
 
     axios.get('https://api.github.com/users/Ali-Key/following')
       .then((res) => {
-        // console.log(response.data);
+        
+        // console.log(res.data);
         setFollowing(res.data)
       })
       .catch(error => {
