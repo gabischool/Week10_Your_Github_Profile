@@ -3,15 +3,13 @@
 
 import React from 'react'
 import FollowersCard from './FollowersCard'
-function FollowersList(props) {
-
-    const {followers} = props;
-
+function FollowersList({ FollowersData }) {
+  // console.log(FollowersData)
   return (
     <div>
-        {followers.map((user) => (
-            <FollowersCard key={user.id} user={user} />
-        ))}
+      {FollowersData.map((user) => (
+        <FollowersCard key={user.id} user={user} />
+      ))}
     </div>
   )
 }
