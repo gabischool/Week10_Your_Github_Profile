@@ -3,15 +3,12 @@
 
 import React from 'react'
 import FollowingCard from './FollowingCard'
-function FollowingList(props) {
-
-    const {following} = props;
-
+function FollowingList({ FollowingData }) {
   return (
     <div>
-        {following.map((user) => (
-            <FollowingCard key={user.id} user={user} />
-        ))}
+      {FollowingData.map((user) => (
+        <FollowingCard key={user.id} user={user} />
+      ))}
     </div>
   )
 }
