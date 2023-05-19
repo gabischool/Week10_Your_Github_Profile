@@ -1,7 +1,12 @@
 // This is the main component where we setup our routing, and pass props to other components.
 // Component-gaan waa meesha aan routing-ka soo gashaneyno, wixii props oo App.js nalooga soo dirayna aan component-ka kale u sii diri doono.
 
-import React from 'react'
+import React,{useEffect,useState,useLocation} from 'react'
+import App from '../App.js';
+import{Route,Link,Routes} from 'react-router-dom'
+ 
+import FollowingList from './following/FollowingList.js';
+ import FollowersList from './followers/FollowersList.js';
 
 // Import "FollowingList" and "FollowersList" components
 // Soo jiido "FollowingList" iyo "FollowersList" components-ka
@@ -14,8 +19,11 @@ function MyProfile(props) {
     // Destructure the props you passed from App.js
     // Kala bixi props-kii lagaaga soo diray App.js
 
-    const location = useLocation();
-
+    const location =  useLocation();
+     
+    const { followers}=props
+    const {following}=props
+    const {profile}=props
   return (
     <div className="px-5 py-2 flex flex-col gap-3 pb-6">
     <div className="h-[90px] shadow-md w-[90px] rounded-full border-4 overflow-hidden -mt-14 border-white">
@@ -47,10 +55,15 @@ function MyProfile(props) {
     </div>
 
     <div className="flex flex-col gap-3">
+  
+    <FollowingList/>
       
     {/** Use Routes and Route to show "FollowingList" and "FollowersList" components and send them their props, Make sure they both have correct path */}
     {/** Adigoo isticmaalaayo Routes iyo Route, tus "FollowingList" iyo "FollowersList", una dir props-ka ay u baahanyihiin. Hubi in "FollowersList" ay Path="/" leedahay, "FollowingList"-na ay Path="/following" leedahay */}
-
+   <Routes> 
+   <Route  path='/' element={<FollowingList />} FollowingList={followers}/>
+   <Route  path='/following' element={<FollowersList/>}FollowersList={following}/>
+   </Routes>
     </div>
   </div>
   )
@@ -58,6 +71,6 @@ function MyProfile(props) {
 
 
 
-export default MyProfile
+export default MyProfile;
 
   
