@@ -3,9 +3,9 @@
 
 import React from 'react'
 import FollowersCard from './FollowersCard'
-function FollowersList(props) {
+function FollowersList({followers}) {
 
-    const {followers} = props;
+    // const {followers} = props;
 
   return (
     <div>

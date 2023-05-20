@@ -1,4 +1,8 @@
 import React from "react";
+import { useState,useEffect } from "react";
+import axios from "axios";
+import MyProfile from "./components/MyProfile"
+
 
 // Import the "useState" and "useEffect" hooks from React
 // Soo jiido "useState" iyo "useEffect"
@@ -15,11 +19,24 @@ function App() {
 
   // Create 3 states, "profile", "followers", and "following"
   // Samee 3 state, "profile", "followers", iyo "following"
-
+const[profile,setProfile]=useState([])
+const[followers,setFollowers]=useState([])
+const[following,setFollowing]=useState([])
 
   // API For Profile = https://api.github.com/users/<your-github-username>
   // API for Followers = https://api.github.com/users/<your-github-username>/followers
   // API for Following = https://api.github.com/users/<your-github-username>/following
+  // Yahyehapiip
+  useEffect(()=>{
+    axios.get('https://api.github.com/users/Yahyehapiip')
+    .then((res)=>{
+      
+      setProfile(res.data);
+      setFollowers([res.data]);
+      setFollowing(res.data
+      )
+    })
+  },[])
 
   // Use axios to fetch data from the API using the useEffect hook
   // Halkaan isticmaal axios adigoo kasoo jiidanaayo waxaa u baahantahay API, useEffect hook-na isticmaal
@@ -30,6 +47,8 @@ function App() {
 
       {/* Show "MyProfile" component here and give it 3 props, "profile", "followers", and "following" */}
       {/* Halkaan soo gali "MyProfile", 3 props-na sii, "profile", "followers", iyo "following" */}
+      {/* {console.log(following)} */}
+      <MyProfile profile={profile} followers={followers} following={following}/>
 
     </div>
   );
