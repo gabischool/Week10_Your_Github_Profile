@@ -19,7 +19,7 @@ function FollowersCard(props) {
       <div className="leading-3">
         <p className=" text-sm font-bold text-slate-700">{user.login}</p>
         <span className="text-xs text-slate-600">@{user.login}</span>
-        <h3>there is no any folowers </h3>
+  
       </div>
     </div>
   )
