@@ -15,9 +15,9 @@ import "./App.css";
 import MyProfile from "./components/MyProfile";
 
 function App() {
-  const [profile,setProfile]  = useState({})
-  const [followers,setFollowers] =  useState(0)
-  const[following,setFollowing] =  useState(0)
+  const [profile,setProfile]  = useState([])
+  const [follower,setFollower] =  useState([])
+  const[following,setFollowing] =  useState([])
   // Create 3 states, "profile", "followers", and "following"
   // Samee 3 state, "profile", "followers", iyo "following"
 
@@ -25,15 +25,23 @@ function App() {
     axios.get("https://api.github.com/users/AmiirCloud")
     .then((resp)=>{
       setProfile(resp.data)
+      // console.log(resp)
+    })
+
+    axios.get("https://api.github.com/users/AmiirCloud/followers")
+    .then((resp)=>{
+      // console.log(resp)
+      setFollower(resp.data)
+      
+       
     })
     axios.get("https://api.github.com/users/AmiirCloud/following")
     .then((resp)=>{
-      setFollowing(resp.data)
+      // setFollowing(resp)
+      // console.log("following",resp)
+        setFollowing(resp.data)
     })
-    axios.get("https://api.github.com/users/AmiirCloud/followers")
-    .then((resp)=>{
-      setFollowers(resp.data)
-    })
+  
   },[])
   
   // API for Followers = https://api.github.com/users/<your-github-username>/followers
@@ -43,15 +51,20 @@ function App() {
   // Halkaan isticmaal axios adigoo kasoo jiidanaayo waxaa u baahantahay API, useEffect hook-na isticmaal
     
   return (<>
-      
+      {/* {console.log("following",following)} */}
     
     <div className="bg-white md:mx-auto rounded shadow-xl w-full md:w-1/2 overflow-hidden">
       <div className="h-[140px] bg-gradient-to-r from-cyan-500 to-blue-500"></div>
       {/* Show "MyProfile" component here and give it 3 props, "profile", "followers", and "following" */}
       {/* Halkaan soo gali "MyProfile", 3 props-na sii, "profile", "followers", iyo "following" */}
-      {/* <MyProfile profile={profile} followers = {followers}  following={following}/> */}
+      <MyProfile profile={profile} followers = {follower}  following={following}/>
       {/* {console.log(following)} */}
-    <MyProfile profile={profile} following={following} followers={followers} />
+      {/* <MyProfile profile={profile} setFollower={follower} following={following} /> */}
+      {/* {console.log(follower?:"Loading")} */}
+      
+      {/* {console.log("follower",follower)} */}
+
+      
     </div>
     </>
   );

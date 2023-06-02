@@ -6,7 +6,7 @@ import React from 'react'
 function FollowersCard(props) {
 
     const {user} = props;
-    console.log(user,"followers ")
+    console.log("my users folowes",props)
 
   return (
     <div className="flex items-center gap-3 px-2 py-3 bg-white rounded border w-full ">

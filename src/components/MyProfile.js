@@ -14,14 +14,13 @@ import FollowersList from '../components/followers/FollowersList'
 // Ka soo jiido "Route", "Routes", "Link", iyo "useLocation" react-router-dom-ka
 
 function MyProfile(props) {
-    
+    // console.log(props)
 
     // Destructure the props you passed from App.js
-    const {profile,following,followers} = props
-  
-   
+    // const {profile,following} = props
+    const {profile,followers,following}  = props
     // Kala bixi props-kii lagaaga soo diray App.js
-
+    console.log("folloers",followers );
     const location = useLocation();
 
   return (
@@ -59,7 +58,8 @@ function MyProfile(props) {
     {/** Use Routes and Route to show "FollowingList" and "FollowersList" components and send them their props, Make sure they both have correct path */}
     {/** Adigoo isticmaalaayo Routes iyo Route, tus "FollowingList" iyo "FollowersList", una dir props-ka ay u baahanyihiin. Hubi in "FollowersList" ay Path="/" leedahay, "FollowingList"-na ay Path="/following" leedahay */}
   <Routes>
-  <Route path='/'element={< FollowersList followers={followers}/>}>
+  
+<Route path='/' element={<FollowersList followers={followers} />}>
 
 </Route>
   <Route path='/following'element={<FollowingList following={following}  />}>
@@ -70,6 +70,7 @@ function MyProfile(props) {
   </Routes>
   
     </div>
+    {/* {console.log(follower)} */}
   </div>
   )
 }

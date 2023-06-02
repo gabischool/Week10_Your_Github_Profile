@@ -7,7 +7,7 @@ function FollowingList(props) {
   
 
     const {following} = props;
-
+  // console.log("following",props)
   return (
     <div>
         {following.map((user) => (
