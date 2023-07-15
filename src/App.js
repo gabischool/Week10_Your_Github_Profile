@@ -12,35 +12,48 @@ import axios from 'axios'
 // Soo jiido "axios" hoos
 import  './App.css';
 
- 
+
+
 
 function App() {
+
+  const [profile,setProfile]=useState([])
+  const [followers,setFollowers]=useState([])
+  const [ following,setFollowing]=useState([])
+  
   useEffect(() => {
     axios.get('https://api.github.com/users/masuud-ahmed')
+     
     .then((res) =>{
-      console.log('res',res.data)
+      setProfile(res.data)
+      // console.log(profile)
+      // // setprofile(res.data)
       
-      
+     
     })
+    
     .catch((res)=>{
-      console(res,'res')
+      console(res.data,'res')
     })
     axios.get('https://api.github.com/users/masuud-ahmed/followers')
     .then((resa)=>{
-      console.log(resa, resa.data)
+      setFollowers(resa.data)
+      // console.log("resa",resa.data)
 
     })
-  .catch((res)=>{
-
+  .catch((resa)=>{
+console.log(resa.data, "resa")
   })
-  axios.get(' https://api.github.com/users/masuud-ahmed/following')
+  axios.get('https://api.github.com/users/masuud-ahmed/following')
   .then((resa1)=>{
-    console.log(resa1.data)
+    // console.log("resa1",resa1.data)
+    setFollowing(resa1.data)
   })
+  .catch((resa1)=>{
+    console.log(resa1.data, "resa1")
+      })
   },[]);
-  const [profile,setprofile]=useState()
-  const [followers,setfollowers]=useState()
-  const [ following,setfollowing]=useState()
+  
   // Create 3 states, "profile", "followers", and "following"
   // Samee 3 state, "profile", "followers", iyo "following"
 
@@ -60,6 +73,7 @@ function App() {
       <div>
 
       <MyProfile profile={profile}  followers={followers} following={following}/>
+        {/* console.log(MyProfile) */}
 
       </div>
       </div>
