@@ -23,4 +23,4 @@ function FollowersCard(props) {
   )
 }
 
-export default FollowersCard
+export default FollowersCard;

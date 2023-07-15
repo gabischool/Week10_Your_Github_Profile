@@ -1,18 +1,23 @@
 // This is the main component where we setup our routing, and pass props to other components.
 // Component-gaan waa meesha aan routing-ka soo gashaneyno, wixii props oo App.js nalooga soo dirayna aan component-ka kale u sii diri doono.
 
-import React from 'react'
+import React from 'react';
 
 // Import "FollowingList" and "FollowersList" components
 // Soo jiido "FollowingList" iyo "FollowersList" components-ka
+import FollowersList from './followers/FollowersList';
+import FollowingList from './following/FollowingList';
+ 
 
 // Import "Route", "Routes", "Link", and "useLocation" from react-router-dom
 // Ka soo jiido "Route", "Routes", "Link", iyo "useLocation" react-router-dom-ka
+import { Route, Routes, Link, useLocation} from 'react-router-dom';
 
 function MyProfile(props) {
 
     // Destructure the props you passed from App.js
     // Kala bixi props-kii lagaaga soo diray App.js
+    const {profile, followers, following } = props
 
     const location = useLocation();
 
@@ -34,15 +39,21 @@ function MyProfile(props) {
     <p className="text-sm text-stone-500">
      {profile.bio}
     </p>
+    <h4 className="text-md font-medium leading-3">Website</h4>
+    <a href={profile.blog} className="text-sm text-blue-600">
+     {profile.blog}
+    </a>
 
     <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
         <ul className="flex flex-wrap -mb-px">
+             
             <li className="mr-2">
-            <Link to="/" className={`inline-block p-4 ${location.pathname === "/" ? "text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" : "border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"}`}>Followers</Link>
+            <Link to="/followers" className={`inline-block p-4 ${location.pathname === "/followers" ? "text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" : "border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"}`}>Followers</Link>
             </li>
             <li className="mr-2">
             <Link to="/following" className={`inline-block p-4 ${location.pathname === "/following" ? "text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" : "border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"}`}>Following</Link>
             </li>
+            
         </ul>
     </div>
 
@@ -50,7 +61,11 @@ function MyProfile(props) {
       
     {/** Use Routes and Route to show "FollowingList" and "FollowersList" components and send them their props, Make sure they both have correct path */}
     {/** Adigoo isticmaalaayo Routes iyo Route, tus "FollowingList" iyo "FollowersList", una dir props-ka ay u baahanyihiin. Hubi in "FollowersList" ay Path="/" leedahay, "FollowingList"-na ay Path="/following" leedahay */}
-
+    <Routes>
+    {/* <Route path="/"  /> */}
+      <Route path="/following" element={<FollowingList following={following}/>}/>
+      <Route path="/" element={<FollowersList followers={followers}/>}/>
+    </Routes>
     </div>
   </div>
   )

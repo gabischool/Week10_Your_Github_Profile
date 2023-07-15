@@ -3,6 +3,7 @@
 
 import React from 'react'
 import FollowersCard from './FollowersCard'
+ 
 function FollowersList(props) {
 
     const {followers} = props;

@@ -23,4 +23,4 @@ function FollowingCard(props) {
   )
 }
 
-export default FollowingCard
+export default FollowingCard;
