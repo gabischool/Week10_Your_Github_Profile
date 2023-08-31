@@ -4,15 +4,20 @@
 import React from 'react'
 import FollowersCard from './FollowersCard'
 function FollowersList(props) {
-
-    const {followers} = props;
-
+// console.log("folloers",props)
+    const { followers } = props;
+    console.log(props)
   return (
-    <div>
-        {followers.map((user) => (
-            <FollowersCard key={user.id} user={user} />
-        ))}
+    <>
+      <div>
+        {/* {console.log("my Followers",followers)} */}
+        {followers.map((user)=>{
+          return <FollowersCard key={user.id} user={user} />
+        })}
+      
     </div>
+    </>
+  
   )
 }
 
