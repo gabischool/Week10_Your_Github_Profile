@@ -22,20 +22,21 @@ function App() {
   // Samee 3 state, "profile", "followers", iyo "following"
 
   useEffect(()=>{
-    axios.get("https://api.github.com/users/AmiirCloud")
+    axios.get("https://api.github.com/users/ENG-AMIIR-MUSE")
     .then((resp)=>{
       setProfile(resp.data)
+
       // console.log(resp)
     })
 
-    axios.get("https://api.github.com/users/AmiirCloud/followers")
+    axios.get("https://api.github.com/users/ENG-AMIIR-MUSE/followers")
     .then((resp)=>{
       // console.log(resp)
       setFollower(resp.data)
       
        
     })
-    axios.get("https://api.github.com/users/AmiirCloud/following")
+    axios.get("https://api.github.com/users/ENG-AMIIR-MUSE/following")
     .then((resp)=>{
       // setFollowing(resp)
       // console.log("following",resp)
