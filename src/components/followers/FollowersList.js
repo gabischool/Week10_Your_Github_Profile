@@ -1,15 +1,19 @@
-// You don't need to change anything in this file.
-// Uma baahnid inaa meeshaan wax ka badasho.
+
 
 import React from 'react'
-import FollowersCard from './FollowersCard'
-function FollowersList(props) {
+import FollowersCard from "./FollowersCard"
 
-    const {followers} = props;
+const FollowersList = (props) => {
+
+  const {fllow} =  props
+  console.log(fllow)
 
   return (
+
     <div>
-        {followers.map((user) => (
+  
+
+  {fllow.map((user) => (
             <FollowersCard key={user.id} user={user} />
         ))}
     </div>
